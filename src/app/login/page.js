@@ -4,10 +4,10 @@ import { useAuth } from "../../providers/context"
 import { useRouter } from "next/navigation"
 import { Input, Button } from "@nextui-org/react"
 import { login } from "../../data/auth"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Login() {
-  const {setToken} = useAuth()
+  const {setToken, setUserType, userType} = useAuth()
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -20,6 +20,13 @@ export default function Login() {
       [name]: value
     }))
   }
+  useEffect(() => {
+  if (userType === "volunteer") {
+    router.push("/volunteer");
+  } else if (userType === "organization") {
+    router.push("/organization");
+  }
+}, [userType, router]);
 
   const submit = (e) => {  
     e.preventDefault()
@@ -27,7 +34,7 @@ export default function Login() {
     login(formData).then((res) => {
       if (res.token) {
         setToken(res.token)
-        router.push('/')
+        setUserType(res.user_type)
       }
     })
     .catch(error => {

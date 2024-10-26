@@ -24,12 +24,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <NextUIProvider>
             <AuthProvider>
-              <Navigation/>
-              {children}
+              <NextUIProvider>
+                <Navigation/>
+                {children}
+              </NextUIProvider>
             </AuthProvider>
-          </NextUIProvider>
       </body>
     </html>
   );
