@@ -17,7 +17,7 @@ export const Navigation = () => {
         }
     }
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen}>
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white dark:bg-gray-800 shadow-lg max-w-none mx-auto">
         <NavbarContent>
             <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}

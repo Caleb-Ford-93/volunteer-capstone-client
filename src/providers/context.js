@@ -8,21 +8,26 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userType, setUserType] = useState("")
+  const [userType, setUserType] = useState("");
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    const storedUserType = localStorage.getItem('userType');
-    if (storedToken) {
-      setToken(storedToken);
-      setIsAuthenticated(true);
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem('token');
+      const storedUserType = localStorage.getItem('userType');
+      
+      if (storedToken) {
+        setToken(storedToken);
+        setIsAuthenticated(true);
+      }
+      
+      if (storedUserType) {
+        setUserType(storedUserType);
+      }
+      
+      setLoading(false);
     }
-    if (storedUserType) {
-      setUserType(storedUserType)
-    }
-    setLoading(false)
   }, []);
 
   const handleSetToken = (newToken) => {
@@ -60,7 +65,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 }

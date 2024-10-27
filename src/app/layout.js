@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navigation } from "../components/NavBar";
-import { AuthProvider } from "../providers/context";
+import { AuthProvider, useAuth } from "../providers/context";
 import { NextUIProvider } from "@nextui-org/react";
 
 const geistSans = localFont({
