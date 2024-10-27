@@ -14,7 +14,7 @@ export const VolunteerNav = () => {
 
     return (
         <>
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden sm:flex gap-10" justify="center">
                 {menuItems.slice(0, -1).map((item) => (  
                     <NavbarItem key={item.label}>
                         <Link color="foreground" href={item.href}>

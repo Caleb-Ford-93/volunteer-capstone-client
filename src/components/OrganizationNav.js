@@ -3,8 +3,6 @@ import { useAuth } from "../providers/context";
 
 export const OrganizationNav = () => {
     const { logout } = useAuth();
-    
-    // Map menu items to their respective paths
     const menuItems = [
         { label: "Home", href: "/organization" },
         { label: "Manage Opportunities", href: "/organization/opportunities" },
