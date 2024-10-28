@@ -1,6 +1,6 @@
 'use client'
-import React, {useState, useMemo} from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import React, {useState} from "react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Link, Button} from "@nextui-org/react";
 import { useAuth } from "../providers/context";
 import { VolunteerNav } from "./VolunteerNav";
 import { OrganizationNav } from "./OrganizationNav";
@@ -30,11 +30,11 @@ export const Navigation = () => {
             {loading ? null : isAuthenticated ? (loggedInButtons()): 
             
             (<NavbarContent justify="end">
-                <NavbarItem className="hidden lg:flex">
+                <NavbarItem className="lg:flex">
                 <Button as={Link} color="primary" href="/login">Login</Button>
                 </NavbarItem>
                 <NavbarItem>
-                <Button as={Link} color="primary" href="#" variant="flat">Sign Up</Button>
+                <Button as={Link} color="primary" href="/register" variant="flat">Sign Up</Button>
                 </NavbarItem>
             </NavbarContent>)}
             

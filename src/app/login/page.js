@@ -1,5 +1,4 @@
 'use client'
-import Link from "next/link"
 import { useAuth } from "../../providers/context"
 import { useRouter } from "next/navigation"
 import { Input, Button } from "@nextui-org/react"
@@ -43,11 +42,10 @@ export default function Login() {
   }
 
   return (
-    <div className="columns is-centered">
-      <div className="column is-half">
-        <form className="box" onSubmit={submit}>
-          <h1 className="title">Welcome Back!</h1>
-            <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+      <div className="m-10 justify-self-center w-96">
+        <form className="box w-full" onSubmit={submit}>
+          <h1 className="title mb-2">Welcome Back!</h1>
+            <div className="flex w-full flex-wrap md:flex-nowrap mb-2">
                 <Input 
                   id="email" 
                   type="email" 
@@ -56,7 +54,7 @@ export default function Login() {
                   onValueChange={handleChange('username')}
                 />
             </div>
-            <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <div className="flex w-full flex-wrap md:flex-nowrap mb-2">
                 <Input 
                   id="password"
                   type="password" 
@@ -67,14 +65,10 @@ export default function Login() {
             </div>
           <div className="field is-grouped">
             <div className="control">
-              <Button type="submit" className="button is-link">Login</Button>
-              <Link href="/register">
-                <Button className="button is-link is-light">Register</Button>
-              </Link>
+              <Button type="submit" color="success" className="button is-link">Login</Button>
             </div>
           </div>
         </form>
       </div>
-    </div>
   )
 }
