@@ -57,7 +57,7 @@ export default function RegisterOrganization() {
     }
     return <div className="m-10 justify-self-center w-96">
         <form className="box w-full" onSubmit={submit}>
-          <h1 className="title">Register an account as a Volunteer</h1>
+          <h1 className="title">Register an account as an Organization</h1>
             <div className="flex w-full flex-wrap md:flex-nowrap mb-2">
                 <Input
                   isRequired 
