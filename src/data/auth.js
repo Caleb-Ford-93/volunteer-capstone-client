@@ -27,3 +27,13 @@ export function getUserProfile() {
     }
   })
 }
+export function updateUserProfile(editInfo, id) {
+  return fetchWithResponse(`profile/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Token ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(editInfo)
+  })
+}
