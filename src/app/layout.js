@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navigation } from "../components/NavBar";
+import { Navigation } from "../components/navBars/NavBar";
 import { AuthProvider, useAuth } from "../providers/context";
 import { NextUIProvider } from "@nextui-org/react";
 

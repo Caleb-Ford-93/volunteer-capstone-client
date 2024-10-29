@@ -1,19 +1,21 @@
 import { NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
-import { useAuth } from "../providers/context";
+import { useAuth } from "../../providers/context";
 
-export const OrganizationNav = () => {
+export const VolunteerNav = () => {
     const { logout } = useAuth();
+    
     const menuItems = [
-        { label: "Home", href: "/organization" },
-        { label: "Manage Opportunities", href: "/organization/opportunities" },
-        { label: "Profile", href: "/organization/profile" },
+        { label: "Home", href: "/volunteer" },
+        { label: "Opportunities", href: "/volunteer/opportunities" },
+        { label: "My Calendar", href: "/volunteer/calendar" },
+        { label: "Profile", href: "/volunteer/profile" },
         { label: "Log Out", action: logout }
     ];
 
     return (
         <>
-            <NavbarContent className="hidden sm:flex gap-20" justify="center">
-                {menuItems.slice(0, -1).map((item) => ( 
+            <NavbarContent className="hidden sm:flex gap-10" justify="center">
+                {menuItems.slice(0, -1).map((item) => (  
                     <NavbarItem key={item.label}>
                         <Link color="foreground" href={item.href}>
                             {item.label}

@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Link, Button} from "@nextui-org/react";
-import { useAuth } from "../providers/context";
+import { useAuth } from "../../providers/context";
 import { VolunteerNav } from "./VolunteerNav";
 import { OrganizationNav } from "./OrganizationNav";
 
