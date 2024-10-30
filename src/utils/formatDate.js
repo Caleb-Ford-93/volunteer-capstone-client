@@ -1,4 +1,4 @@
-const formatDate = (dateString) => {
+export const formatTheDate = (dateString) => {
     if (!dateString) return "";
 
     const [year, month, day] = dateString.split("-");

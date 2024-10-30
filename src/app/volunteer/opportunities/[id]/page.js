@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { getOpportunityById, signUpVolunteer } from "@/src/data/opportunities"
 import { Button } from "@nextui-org/react"
+import { formatTheDate } from '@/src/utils/formatDate'
 
 export default function OpportunityDetails({ params }) {
     const [opportunity, setOpportunity] = useState(null)
     const router = useRouter()
 
     useEffect(() => {
-        // Resolve params.id asynchronously
         const fetchOpportunity = async () => {
             const resolvedParams = await params
             const opportunityData = await getOpportunityById(resolvedParams.id)
@@ -20,18 +20,6 @@ export default function OpportunityDetails({ params }) {
         fetchOpportunity()
     }, [params])
 
-    const formatDate = (dateString) => {
-        if (!dateString) return "";
-
-        const [year, month, day] = dateString.split("-");
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-        
-        const monthName = monthNames[parseInt(month, 10) - 1];
-        return `${monthName} ${parseInt(day, 10)}, ${year}`;
-    }
     
     const handleSignUp = (opportunityId) => {
         signUpVolunteer(opportunityId).then(()=>{
@@ -51,8 +39,8 @@ export default function OpportunityDetails({ params }) {
 
             {/* Row for start date, end date, and location */}
             <div className="flex justify-between items-center mb-8">
-                <p><strong>Start Date:</strong> {formatDate(opportunity.start_date)}</p>
-                <p><strong>End Date:</strong> {formatDate(opportunity.end_date)}</p>
+                <p><strong>Start Date:</strong> {formatTheDate(opportunity.start_date)}</p>
+                <p><strong>End Date:</strong> {formatTheDate(opportunity.end_date)}</p>
                 <p><strong>Location:</strong> {opportunity.location}</p>
             </div>
 

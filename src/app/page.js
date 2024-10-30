@@ -15,7 +15,7 @@ export default function LandingPage() {
                     color="primary" 
                     size="lg" 
                     as="a" 
-                    href="/register" // Adjust this link based on your routing setup
+                    href="/register"
                     className="bg-blue-500 hover:bg-blue-600 text-white rounded-md"
                 >
                     Get Started

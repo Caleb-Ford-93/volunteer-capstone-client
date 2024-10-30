@@ -13,9 +13,7 @@ export default function OrganizationProfile() {
             setProfile(res)
         })
     },[])
-    
-        
-    
+
     return <div className="flex flex-col m-8 mt-14 justify-self-center place-items-center" >
             <h1 className="text-4xl mb-4">{profile?.organization.name}</h1>
             <p>{profile?.organization.location}</p>

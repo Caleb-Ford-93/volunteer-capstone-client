@@ -1,19 +1,8 @@
 import { deleteOpportunity } from "@/src/data/opportunities"
 import { Button, Link } from "@nextui-org/react"
+import { formatTheDate } from "@/src/utils/formatDate"
 
 export const OrganizationOpportunityCard = ({ opportunity, onDelete, showActions = true }) => {
-    const formatDate = (dateString) => {
-    if (!dateString) return "";
-
-    const [year, month, day] = dateString.split("-");
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    
-    const monthName = monthNames[parseInt(month, 10) - 1];
-    return `${monthName} ${parseInt(day, 10)}, ${year}`;
-}
 
     const handleDelete = async () => {
         try {
@@ -30,7 +19,7 @@ export const OrganizationOpportunityCard = ({ opportunity, onDelete, showActions
             <div className="mr-8">
                 <h1 className="text-2xl font-semibold mb-1">{opportunity.title}</h1>
                 <p className="text-sm text-gray-500">
-                    {formatDate(opportunity.start_date)} - {formatDate(opportunity.end_date)}
+                    {formatTheDate(opportunity.start_date)} - {formatTheDate(opportunity.end_date)}
                 </p>
             </div>
             {showActions && (

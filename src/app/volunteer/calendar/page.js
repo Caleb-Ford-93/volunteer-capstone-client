@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { getSignedUpOpportunities, removeVolunteerFromOpportunity } from "@/src/data/opportunities"
 import { VolunteerOpportunityCard } from "@/src/components/opportunityCards/VolunteerOpportunity"
 import { Button } from '@nextui-org/react'
+import { formatTheDate } from '@/src/utils/formatDate'
 
 export default function VolunteerCalendar() {
     const [opportunities, setOpportunities] = useState([])
@@ -27,18 +28,6 @@ export default function VolunteerCalendar() {
             getAndSetOpportunities()
         })
     }
-    const formatDate = (dateString) => {
-    if (!dateString) return "";
-
-    const [year, month, day] = dateString.split("-");
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    
-    const monthName = monthNames[parseInt(month, 10) - 1];
-    return `${monthName} ${parseInt(day, 10)}, ${year}`;
-}
 
     return (
         <div className="p-6 flex">
@@ -70,8 +59,8 @@ export default function VolunteerCalendar() {
                     <p className="text-lg text-gray-700 mb-4">Organization: {selectedOpportunity.organization.name}</p>
                     <p className="text-gray-800 mb-6">{selectedOpportunity.details}</p>
                     <div className="flex justify-between flex-col">
-                        <p><strong>Start Date:</strong> {formatDate(selectedOpportunity.start_date)}</p>
-                        <p><strong>End Date:</strong> {formatDate(selectedOpportunity.end_date)}</p>
+                        <p><strong>Start Date:</strong> {formatTheDate(selectedOpportunity.start_date)}</p>
+                        <p><strong>End Date:</strong> {formatTheDate(selectedOpportunity.end_date)}</p>
                         <p><strong>Location:</strong> {selectedOpportunity.location}</p>
                     </div>
                     {/* Close Details Button */}
