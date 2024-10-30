@@ -2,53 +2,55 @@
 
 import { useEffect, useState } from 'react'
 import { getAllOpportunities } from "@/src/data/opportunities"
-import { getUserProfile } from "@/src/data/auth"
 import { VolunteerOpportunityCard } from "@/src/components/opportunityCards/VolunteerOpportunity"
+import { Button } from '@nextui-org/react'
 
 export default function VolunteerAllOpportunitiesView() {
     const [opportunities, setOpportunities] = useState([])
-    const [registeredOpportunityIds, setRegisteredOpportunityIds] = useState([])
+    const [selectedOrganization, setSelectedOrganization] = useState(null) // State to hold selected organization
 
     useEffect(() => {
-        // Fetch all opportunities and the volunteer's profile
-        const fetchOpportunities = async () => {
-            const [allOpportunities, profile] = await Promise.all([
-                getAllOpportunities(),
-                getUserProfile()
-            ])
-            
-            // Extract IDs of opportunities the volunteer is signed up for
-            const registeredIds = profile.volunteer.opportunities.map(opportunity => opportunity.id)
-            
-            // Filter out registered opportunities
-            const filteredOpportunities = allOpportunities.filter(
-                (opportunity) => !registeredIds.includes(opportunity.id)
-            )
-
-            setOpportunities(filteredOpportunities)
-            setRegisteredOpportunityIds(registeredIds)
-        }
-
-        fetchOpportunities()
+        getAllOpportunities().then((res) => {
+            setOpportunities(res)
+        })
     }, [])
 
+    const handleViewOrganization = (organization) => {
+        setSelectedOrganization(organization)
+    }
+
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-semibold mb-6">Available Opportunities</h1>
-            <div className="grid gap-4">
-                {opportunities.length > 0 ? (
-                    opportunities.map((opportunity) => (
-                        <VolunteerOpportunityCard 
-                            key={opportunity.id}
-                            opportunity={opportunity}
-                            viewType="all" // Show "View Organization" button in this view
-                            organizationName={opportunity.organization.name}
-                        />
-                    ))
-                ) : (
-                    <p>No available opportunities at the moment.</p>
-                )}
+        <div className="p-6 flex">
+            {/* Left Column: Opportunities List */}
+            <div className="w-1/2 pr-6">
+                <h1 className="text-3xl font-semibold mb-6">Available Opportunities</h1>
+                <div className="grid gap-4">
+                    {opportunities.length > 0 ? (
+                        opportunities.map((opportunity) => (
+                            <VolunteerOpportunityCard 
+                                key={opportunity.id}
+                                opportunity={opportunity}
+                                viewType="all"
+                                organizationName={opportunity.organization.name}
+                                onViewOrganization={() => handleViewOrganization(opportunity.organization)}
+                            />
+                        ))
+                    ) : (
+                        <p>No available opportunities at the moment.</p>
+                    )}
+                </div>
             </div>
+
+            {/* Right Column: Organization Details */}
+            {selectedOrganization && (
+                <div className="w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white">
+                    <h2 className="text-2xl font-semibold mb-4">Organization Details</h2>
+                    <p><strong>Name:</strong> {selectedOrganization.name}</p>
+                    <p><strong>Location:</strong> {selectedOrganization.location}</p>
+                    <p><strong>Description:</strong> {selectedOrganization.description}</p>
+                    <Button className="mt-4" onPress={() => setSelectedOrganization(null)}>Close Details</Button>
+                </div>
+            )}
         </div>
     )
 }

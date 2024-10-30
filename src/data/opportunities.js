@@ -45,3 +45,42 @@ export function deleteOpportunity(id){
     }
   })
 }
+
+export function getAllOpportunities(){
+  return fetchWithResponse("opportunities", {
+    headers: {
+      Authorization: `Token ${localStorage.getItem('token')}`,
+    }
+  })
+}
+
+export function signUpVolunteer(id) {
+  return fetchWithoutResponse("profile/volunteer", {
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({"opportunityId": id})
+  })
+}
+
+export function getSignedUpOpportunities() {
+  return fetchWithResponse("profile/volunteer", {
+    method: 'GET',
+    headers: {
+      Authorization: `Token ${localStorage.getItem('token')}`
+    }
+  })
+}
+
+export function removeVolunteerFromOpportunity(id) {
+  return fetchWithoutResponse("profile/volunteer", {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({"opportunityId": id})
+  })
+}
