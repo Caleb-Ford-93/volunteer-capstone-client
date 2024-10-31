@@ -36,13 +36,13 @@ export default function EditOrganization() {
         console.error('Update error:', error)
         })
     }
-    return <div className="m-10 justify-self-center w-96">
+    return <div className="p-6 mt-8 max-w-md mx-auto bg-white rounded-lg shadow-md dark:bg-gray-950">
         <form className="box w-full" onSubmit={submit}>
           <h1 className="title">Edit Your Information</h1>
             <div className="flex w-full flex-wrap md:flex-nowrap mb-2">
                 <Input
                   isRequired 
-                  id="email" 
+                  id="email"
                   type="email" 
                   label="Email"
                   value={updateData?.email}

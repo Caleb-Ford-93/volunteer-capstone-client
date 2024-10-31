@@ -54,10 +54,10 @@ export default function VolunteerCalendar() {
 
             {/* Right Column: Selected Opportunity Details */}
             {selectedOpportunity && (
-                <div className="w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white">
+                <div className="w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white dark:bg-gray-950 dark:border-black">
                     <h2 className="text-2xl font-semibold mb-4">{selectedOpportunity.title}</h2>
-                    <p className="text-lg text-gray-700 mb-4">Organization: {selectedOpportunity.organization.name}</p>
-                    <p className="text-gray-800 mb-6">{selectedOpportunity.details}</p>
+                    <p className="text-lg mb-4">Organization: {selectedOpportunity.organization.name}</p>
+                    <p className="mb-6">{selectedOpportunity.description}</p>
                     <div className="flex justify-between flex-col">
                         <p><strong>Start Date:</strong> {formatTheDate(selectedOpportunity.start_date)}</p>
                         <p><strong>End Date:</strong> {formatTheDate(selectedOpportunity.end_date)}</p>

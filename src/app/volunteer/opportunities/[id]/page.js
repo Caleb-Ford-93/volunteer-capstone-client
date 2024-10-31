@@ -31,11 +31,11 @@ export default function OpportunityDetails({ params }) {
     if (!opportunity) return <p>Loading...</p>
 
     return (
-        <div className="mt-4 p-6 max-w-3xl mx-auto bg-white rounded-lg shadow-md">
+        <div className="mt-4 p-6 max-w-3xl mx-auto bg-white rounded-lg shadow-md dark:bg-gray-950">
             <h1 className="text-3xl font-bold mb-2">{opportunity.title}</h1>
-            <p className="text-xl text-gray-700 mb-4">{opportunity.organization.name}</p>
+            <p className="text-xl">{opportunity.organization.name}</p>
 
-            <p className="text-gray-800 mb-6">{opportunity.description}</p>
+            <p className="mb-6">{opportunity.description}</p>
 
             {/* Row for start date, end date, and location */}
             <div className="flex justify-between items-center mb-8">

@@ -100,12 +100,12 @@ export default function OpportunityDetails({ params }) {
 
             <div className="w-full md:w-1/2 space-y-4">
                 <h1 className="text-3xl font-semibold">{opportunity.title}</h1>
-                <p className="text-gray-600"><strong>Location:</strong> {opportunity.location}</p>
-                <p className="text-gray-600"><strong>Description:</strong> {opportunity.description}</p>
-                <p className="text-gray-600"><strong>Start Date:</strong> {formatTheDate(opportunity.start_date)}</p>
-                <p className="text-gray-600"><strong>End Date:</strong> {formatTheDate(opportunity.end_date)}</p>
+                <p><strong>Location:</strong> {opportunity.location}</p>
+                <p><strong>Description:</strong> {opportunity.description}</p>
+                <p><strong>Start Date:</strong> {formatTheDate(opportunity.start_date)}</p>
+                <p><strong>End Date:</strong> {formatTheDate(opportunity.end_date)}</p>
                 
-                <p className="text-gray-600"><strong>Skills:</strong> {opportunity.skills && opportunity.skills.length > 0 ? opportunity.skills.map(skillId => {
+                <p><strong>Skills:</strong> {opportunity.skills && opportunity.skills.length > 0 ? opportunity.skills.map(skillId => {
                     const skill = skills.find(s => s.id === skillId.id)
                     return skill ? skill.name : null
                 }).filter(Boolean).join(", ") : "None"}</p>
@@ -118,11 +118,12 @@ export default function OpportunityDetails({ params }) {
 
 
             {isEditVisible && (
-                <div className="w-full md:w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white">
+                <div className="w-full md:w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white dark:bg-gray-950 dark:border-black">
                     <h2 className="text-xl font-semibold mb-4">Edit Opportunity</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <Input
                             label="Title"
+                            variant="bordered"
                             value={formData.title}
                             onChange={handleInputChange("title")}
                             required
@@ -130,6 +131,7 @@ export default function OpportunityDetails({ params }) {
                         />
                         <Input
                             label="Location"
+                            variant="bordered"
                             value={formData.location}
                             onChange={handleInputChange("location")}
                             required
@@ -137,6 +139,7 @@ export default function OpportunityDetails({ params }) {
                         />
                         <Textarea
                             label="Description"
+                            variant="bordered"
                             value={formData.description}
                             onChange={handleInputChange("description")}
                             required
@@ -144,6 +147,7 @@ export default function OpportunityDetails({ params }) {
                         />
                         <Input
                             type="date"
+                            variant="bordered"
                             label="Start Date"
                             value={formData.start_date}
                             onChange={handleInputChange("start_date")}
@@ -152,6 +156,7 @@ export default function OpportunityDetails({ params }) {
                         />
                         <Input
                             type="date"
+                            variant="bordered"
                             label="End Date"
                             value={formData.end_date}
                             onChange={handleInputChange("end_date")}
@@ -159,7 +164,7 @@ export default function OpportunityDetails({ params }) {
                             className="w-full"
                         />
                         
-                        <div className="border rounded-md p-2 max-h-32 overflow-y-scroll">
+                        <div className="border rounded-md p-2 max-h-32 overflow-y-scroll dark:border-zinc-600">
                             <label className="block font-medium mb-2">Select Skills:</label>
                             {skills.map((skill) => (
                                 <div key={skill.id}>

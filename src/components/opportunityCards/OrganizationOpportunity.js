@@ -15,10 +15,10 @@ export const OrganizationOpportunityCard = ({ opportunity, onDelete, showActions
     }
 
     return (
-        <div className="border rounded-lg shadow-md p-4 mb-4 flex items-start justify-between">
+        <div className="border rounded-lg shadow-md p-4 mb-4 flex items-start justify-between dark:bg-gray-950 dark:border-black">
             <div className="mr-8">
                 <h1 className="text-2xl font-semibold mb-1">{opportunity.title}</h1>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm">
                     {formatTheDate(opportunity.start_date)} - {formatTheDate(opportunity.end_date)}
                 </p>
             </div>

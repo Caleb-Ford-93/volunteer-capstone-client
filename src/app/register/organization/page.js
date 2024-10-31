@@ -63,6 +63,7 @@ export default function RegisterOrganization() {
                   isRequired 
                   id="firstName" 
                   type="text" 
+                  variant="bordered"
                   label="Representative's First Name"
                   value={registerData.first_name}
                   onValueChange={handleChange('first_name')}
@@ -73,6 +74,7 @@ export default function RegisterOrganization() {
                   isRequired 
                   id="lastName" 
                   type="text" 
+                  variant="bordered"
                   label="Representative's Last Name"
                   value={registerData.last_name}
                   onValueChange={handleChange('last_name')}
@@ -84,6 +86,7 @@ export default function RegisterOrganization() {
                   id="email" 
                   type="email" 
                   label="Email"
+                  variant="bordered"
                   value={registerData.email}
                   onValueChange={handleChange('email')}
                 />
@@ -93,6 +96,7 @@ export default function RegisterOrganization() {
                   isRequired 
                   id="name"
                   type="text" 
+                  variant="bordered"
                   label="Organization Name"
                   value={registerData.name}
                   onValueChange={handleChange('name')}
@@ -102,6 +106,7 @@ export default function RegisterOrganization() {
                 <Textarea
                   isRequired 
                   id="description"
+                  variant="bordered"
                   label="Description of your Organization"
                   value={registerData.description}
                   onValueChange={handleChange('description')}
@@ -112,6 +117,7 @@ export default function RegisterOrganization() {
                   isRequired 
                   id="location"
                   type="text" 
+                  variant="bordered"
                   label="Location"
                   value={registerData.location}
                   onValueChange={handleChange('location')}
@@ -122,6 +128,7 @@ export default function RegisterOrganization() {
                   isRequired 
                   id="password"
                   type="password" 
+                  variant="bordered"
                   label="Password"
                   value={registerData.password}
                   onValueChange={handleChange('password')}

@@ -51,6 +51,7 @@ export default function Login() {
                 <Input 
                   id="email" 
                   type="email" 
+                  variant="bordered"
                   label="Email"
                   value={formData.username}
                   onValueChange={handleChange('username')}
@@ -60,6 +61,7 @@ export default function Login() {
                 <Input 
                   id="password"
                   type="password" 
+                  variant="bordered"
                   label="Password"
                   value={formData.password}
                   onValueChange={handleChange('password')}

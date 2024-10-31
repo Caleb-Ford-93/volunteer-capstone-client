@@ -13,13 +13,13 @@ export const VolunteerOpportunityCard = ({
     }) => {
 
     return (
-        <div className="border rounded-lg shadow-md p-4 mb-4 flex items-start justify-between">
+        <div className="border rounded-lg shadow-md p-4 mb-4 flex items-start justify-between dark:border-black dark:bg-gray-950">
             <div className="mr-8">
                 <h1 className="text-2xl font-semibold mb-1">{opportunity.title}</h1>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm">
                     {formatTheDate(opportunity.start_date)} - {formatTheDate(opportunity.end_date)}
                 </p>
-                <p className="text-sm text-gray-500">Organization: {organizationName}</p>
+                <p className="text-sm">Organization: {organizationName}</p>
             </div>
             {showButtons && (
                 <div className="flex flex-col space-y-2">

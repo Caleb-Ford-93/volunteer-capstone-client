@@ -43,7 +43,7 @@ export default function VolunteerAllOpportunitiesView() {
 
             {/* Right Column: Organization Details */}
             {selectedOrganization && (
-                <div className="w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white">
+                <div className="w-1/2 ml-6 border rounded-lg p-4 shadow-md bg-white dark:bg-gray-950 dark:border-black">
                     <h2 className="text-2xl font-semibold mb-4">Organization Details</h2>
                     <p><strong>Name:</strong> {selectedOrganization.name}</p>
                     <p><strong>Location:</strong> {selectedOrganization.location}</p>

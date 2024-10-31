@@ -17,11 +17,11 @@ export default function VolunteerProfile() {
         <div className="flex flex-col items-center m-8 mt-14 space-y-8">
             <h1 className="text-4xl mb-4">{profile?.first_name} {profile?.last_name}</h1>
             
-            <div className="text-center">
+            <div>
                 <h2 className="text-lg font-semibold">Skills:</h2>
                 <ul className="list-disc pl-5 text-left">
                     {profile?.volunteer.skills.map((skill) => (
-                        <li key={skill.id} className="text-gray-700">{skill.name}</li>
+                        <li key={skill.id}>{skill.name}</li>
                     ))}
                 </ul>
             </div>
