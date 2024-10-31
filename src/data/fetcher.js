@@ -9,7 +9,7 @@ const checkError = (res) => {
 
 const checkErrorJson = (res) => {
   if (res.status !== 200 && res.status !== 201) {
-    throw Error(res.status);
+    throw Error(String(res.status));
   } else {
     return res.json()
   }
@@ -17,11 +17,11 @@ const checkErrorJson = (res) => {
 
 
 const catchError = (err) => {
-  if (err.message === 401) {
+  if (err.message === "401") {
     window.location.href = "/login"
   }
-  if (err.message === 404) {
-    throw Error(err.message);
+  if (err.message === "404") {
+    return (err.message);
   }
 }
 
