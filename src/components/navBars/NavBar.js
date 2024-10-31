@@ -4,6 +4,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Link, 
 import { useAuth } from "../../providers/context";
 import { VolunteerNav } from "./VolunteerNav";
 import { OrganizationNav } from "./OrganizationNav";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 
 export const Navigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export const Navigation = () => {
         }
     }
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white dark:bg-gray-800 shadow-lg max-w-none mx-auto">
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white dark:bg-gray-900 shadow-lg max-w-none mx-auto">
         <NavbarContent>
             <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -37,6 +38,7 @@ export const Navigation = () => {
                 <Button as={Link} color="primary" href="/register" variant="flat">Sign Up</Button>
                 </NavbarItem>
             </NavbarContent>)}
+                <ThemeSwitcher/>
             
             </Navbar>
         );

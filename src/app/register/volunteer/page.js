@@ -61,6 +61,7 @@ export default function RegisterVolunteer() {
                   isRequired 
                   id="firstName" 
                   type="text" 
+                  variant="bordered"
                   label="First Name"
                   value={registerData.first_name}
                   onValueChange={handleChange('first_name')}
@@ -71,6 +72,7 @@ export default function RegisterVolunteer() {
                   isRequired 
                   id="lastName" 
                   type="text" 
+                  variant="bordered"
                   label="Last Name"
                   value={registerData.last_name}
                   onValueChange={handleChange('last_name')}
@@ -80,7 +82,8 @@ export default function RegisterVolunteer() {
                 <Input
                   isRequired 
                   id="email" 
-                  type="email" 
+                  type="email"
+                  variant="bordered" 
                   label="Email"
                   value={registerData.email}
                   onValueChange={handleChange('email')}
@@ -91,6 +94,7 @@ export default function RegisterVolunteer() {
                   isRequired 
                   id="phone_number" 
                   type="integer" 
+                  variant="bordered"
                   label="Phone Number"
                   value={registerData.phone_number}
                   onValueChange={handleChange('phone_number')}
@@ -101,6 +105,7 @@ export default function RegisterVolunteer() {
                   isRequired 
                   id="location"
                   type="text" 
+                  variant="bordered"
                   label="Location"
                   value={registerData.location}
                   onValueChange={handleChange('location')}
@@ -111,6 +116,7 @@ export default function RegisterVolunteer() {
                   isRequired 
                   id="password"
                   type="password" 
+                  variant="bordered"
                   label="Password"
                   value={registerData.password}
                   onValueChange={handleChange('password')}

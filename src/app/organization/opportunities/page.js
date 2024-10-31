@@ -93,10 +93,11 @@ export default function OrganizationOpportunities() {
             </div>
             <div className="w-full md:w-1/2 mx-auto">
                 {isFormVisible && (
-                    <form onSubmit={handleSubmit} className="border p-4 rounded-lg shadow-md space-y-4">
+                    <form onSubmit={handleSubmit} className="border p-4 rounded-lg shadow-md space-y-4 dark:bg-gray-950 dark:border-black">
                         <Input
                             label="Title"
                             placeholder="Enter title"
+                            variant="bordered"
                             value={formData.title}
                             onChange={handleInputChange("title")}
                             required
@@ -105,6 +106,7 @@ export default function OrganizationOpportunities() {
                         <Input
                             type="date"
                             label="Start Date"
+                            variant="bordered"
                             value={formData.start_date}
                             onChange={handleInputChange("start_date")}
                             required
@@ -113,6 +115,7 @@ export default function OrganizationOpportunities() {
                         <Input
                             type="date"
                             label="End Date"
+                            variant="bordered"
                             value={formData.end_date}
                             onChange={handleInputChange("end_date")}
                             required
@@ -121,6 +124,7 @@ export default function OrganizationOpportunities() {
                         <Input
                             label="Location"
                             placeholder="Enter location"
+                            variant="bordered"
                             value={formData.location}
                             onChange={handleInputChange("location")}
                             required
@@ -129,12 +133,13 @@ export default function OrganizationOpportunities() {
                         <Textarea
                             label="Description"
                             placeholder="Enter description"
+                            variant="bordered"
                             value={formData.description}
                             onChange={handleInputChange("description")}
                             required
                             className="w-full"
                         />
-                        <div className="border rounded-md p-2 max-h-32 overflow-y-scroll">
+                        <div className="border rounded-md p-2 max-h-32 overflow-y-scroll dark:border-zinc-600">
                             <label className="block font-medium mb-2">Select Skills:</label>
                             {skills.map((skill) => (
                                 <div key={skill.id}>

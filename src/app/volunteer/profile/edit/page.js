@@ -68,7 +68,7 @@ export default function EditVolunteerInformation() {
     }
 
     return (
-        <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md">
+        <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md dark:bg-gray-950">
             <h1 className="text-2xl font-semibold mb-6">Edit Volunteer Information</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <Input

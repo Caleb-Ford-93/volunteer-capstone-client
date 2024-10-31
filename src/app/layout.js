@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navigation } from "../components/navBars/NavBar";
 import { AuthProvider, useAuth } from "../providers/context";
 import { NextUIProvider } from "@nextui-org/react";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
             <AuthProvider>
               <NextUIProvider>
-                <Navigation/>
-                {children}
+                <NextThemesProvider attribute="class" defaultTheme="dark">
+                  <Navigation/>
+                    {children}
+                </NextThemesProvider>
               </NextUIProvider>
             </AuthProvider>
       </body>
