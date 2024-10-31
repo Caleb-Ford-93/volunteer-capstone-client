@@ -4,6 +4,7 @@ import { getOpportunityById, updateOpportunity } from '@/src/data/opportunities'
 import { getSkills } from '@/src/data/skills'
 import { Button, Input, Textarea, Checkbox } from "@nextui-org/react"
 import { useRouter } from 'next/navigation'
+import { formatTheDate } from '@/src/utils/formatDate'
 
 export default function OpportunityDetails({ params }) {
     const [opportunity, setOpportunity] = useState(null)
@@ -92,19 +93,6 @@ export default function OpportunityDetails({ params }) {
         }
     }
 
-    const formatDate = (dateString) => {
-    if (!dateString) return ""; 
-
-    const [year, month, day] = dateString.split("-");
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    
-    const monthName = monthNames[parseInt(month, 10) - 1]; 
-    return `${monthName} ${parseInt(day, 10)}, ${year}`;
-}
-
     if (!opportunity || skills.length === 0) return <p>Loading...</p>
 
     return (
@@ -114,8 +102,8 @@ export default function OpportunityDetails({ params }) {
                 <h1 className="text-3xl font-semibold">{opportunity.title}</h1>
                 <p className="text-gray-600"><strong>Location:</strong> {opportunity.location}</p>
                 <p className="text-gray-600"><strong>Description:</strong> {opportunity.description}</p>
-                <p className="text-gray-600"><strong>Start Date:</strong> {formatDate(opportunity.start_date)}</p>
-                <p className="text-gray-600"><strong>End Date:</strong> {formatDate(opportunity.end_date)}</p>
+                <p className="text-gray-600"><strong>Start Date:</strong> {formatTheDate(opportunity.start_date)}</p>
+                <p className="text-gray-600"><strong>End Date:</strong> {formatTheDate(opportunity.end_date)}</p>
                 
                 <p className="text-gray-600"><strong>Skills:</strong> {opportunity.skills && opportunity.skills.length > 0 ? opportunity.skills.map(skillId => {
                     const skill = skills.find(s => s.id === skillId.id)

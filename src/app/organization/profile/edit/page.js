@@ -1,13 +1,11 @@
 'use client'
-import { getUserProfile, register, updateUserProfile } from "@/src/data/auth"
-import { useAuth } from "@/src/providers/context"
+import { getUserProfile, updateUserProfile } from "@/src/data/auth"
 import { Button, Input, Textarea } from "@nextui-org/react"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 
 export default function EditOrganization() {
     const router = useRouter()
-    const {setToken, setUserType, userType} = useAuth()
     const [profile, setProfile] = useState()
     const [updateData, setUpdateData] = useState({})
 
