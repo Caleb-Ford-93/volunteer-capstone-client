@@ -11,6 +11,7 @@ export default function Login() {
     username: '',
     password: ''
   })
+  const [errorMessage, setErrorMessage] = useState("")
   const router = useRouter()
 
   const handleChange = (name) => (value) => {
@@ -20,24 +21,25 @@ export default function Login() {
     }))
   }
   useEffect(() => {
-  if (userType === "volunteer") {
-    router.push("/volunteer");
-  } else if (userType === "organization") {
-    router.push("/organization");
-  }
-}, [userType, router]);
+    if (userType === "volunteer") {
+      router.push("/volunteer");
+    } else if (userType === "organization") {
+      router.push("/organization");
+    }
+  }, [userType, router]);
 
   const submit = (e) => {  
     e.preventDefault()
-    
+    setErrorMessage("")
+
     login(formData).then((res) => {
+      if (res === "404"){
+        setErrorMessage("Invalid Credentials, Please try again.")
+      }
       if (res.token) {
         setToken(res.token)
         setUserType(res.user_type)
       }
-    })
-    .catch(error => {
-      console.error('Login error:', error)
     })
   }
 
@@ -63,6 +65,9 @@ export default function Login() {
                   onValueChange={handleChange('password')}
                 />
             </div>
+            {errorMessage && (
+          <p className="text-red-500 mb-4">{errorMessage}</p>
+        )}
           <div className="field is-grouped">
             <div className="control">
               <Button type="submit" color="success" className="button is-link">Login</Button>
